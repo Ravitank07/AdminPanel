@@ -5,7 +5,6 @@ import AdminNavbar from "components/Navbars/AdminNavbar.js";
 import Footer from "components/Footer/Footer.js";
 import Sidebar from "components/Sidebar/Sidebar.js";
 import FixedPlugin from "components/FixedPlugin/FixedPlugin.js";
-
 import routes from "routes.js";
 import logo from "assets/img/react-logo.png";
 import { BackgroundColorContext } from "contexts/BackgroundColorContext";
@@ -13,13 +12,13 @@ import UpdatePage from "views/UpdatePage";
 
 var ps;
 
-function Admin(props) {
+function Admin() {
   const location = useLocation();
   const mainPanelRef = React.useRef(null);
   const [sidebarOpened, setsidebarOpened] = React.useState(
     document.documentElement.className.indexOf("nav-open") !== -1
   );
-  
+
   React.useEffect(() => {
     if (navigator.platform.indexOf("Win") > -1) {
       document.documentElement.className += " perfect-scrollbar-on";
@@ -32,7 +31,6 @@ function Admin(props) {
         ps = new PerfectScrollbar(tables[i]);
       }
     }
-    // Cleanup effect
     return function cleanup() {
       if (navigator.platform.indexOf("Win") > -1) {
         ps.destroy();
@@ -43,12 +41,6 @@ function Admin(props) {
   });
 
   React.useEffect(() => {
-    if (navigator.platform.indexOf("Win") > -1) {
-      let tables = document.querySelectorAll(".table-responsive");
-      for (let i = 0; i < tables.length; i++) {
-        ps = new PerfectScrollbar(tables[i]);
-      }
-    }
     document.documentElement.scrollTop = 0;
     document.scrollingElement.scrollTop = 0;
     if (mainPanelRef.current) {
@@ -56,7 +48,6 @@ function Admin(props) {
     }
   }, [location]);
 
-  // Function to toggle sidebar
   const toggleSidebar = () => {
     document.documentElement.classList.toggle("nav-open");
     setsidebarOpened(!sidebarOpened);
@@ -64,13 +55,12 @@ function Admin(props) {
 
   const getRoutes = (routes) => {
     return routes.map((prop, key) => {
-      // Check for the layout of the route
       if (prop.layout === "/admin") {
         return (
           <Route path={prop.path} element={prop.component} key={key} exact />
         );
       }
-      return null; // Handle other routes separately
+      return null;
     });
   };
 
@@ -105,8 +95,7 @@ function Admin(props) {
               />
               <Routes>
                 {getRoutes(routes)}
-                {/* Add the route for UpdatePage as a separate route outside the map */}
-                <Route path="/updatep/:id" element={<UpdatePage />} />
+                <Route path="updatep/:id" element={<UpdatePage />} />
                 <Route path="/" element={<Navigate to="/admin/dashboard" replace />} />
               </Routes>
               {location.pathname === "/admin/maps" ? null : <Footer fluid />}
