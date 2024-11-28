@@ -1,10 +1,11 @@
 import Dashboard from "views/Dashboard.js";
-import Mangeapps from "views/Mangeapps";
+import Mangeapps from "views/AppSetting";
 import Analytics from "views/Analytics.js";
-import Conversions from "views/Conversions.js";
+import User from "views/User";
 import Account from "views/Account.js";
-import Contact from "views/Contact.js";
+import ReviewApps from "views/ReviewApps";
 import Payments from "views/Payments.js";
+import SocialMedia from "views/SocialMedia";
 var routes = [
   {
     path: "/dashboard",
@@ -31,28 +32,28 @@ var routes = [
     path: "/payment",
     name: "Payments",
     icon: "tim-icons icon-bell-55",
-    component: <Conversions />,
+    component: <Payments />,
     layout: "/admin",
   },
   {
     path: "/reviewapps",
     name: "Review Apps",
     icon: "tim-icons icon-puzzle-10",
-    component: <Payments />,
+    component: <ReviewApps />,
     layout: "/admin",
   },
   {
     path: "/socialmedia",
     name: "Social Media",
     icon: "tim-icons icon-single-02",
-    component: <Account />,
+    component: <SocialMedia />,
     layout: "/admin",
   },
   {
     path: "/user",
     name: "User",
     icon: "tim-icons icon-world",
-    component: <Contact />,
+    component: <User />,
     layout: "/admin",
   },
 ];

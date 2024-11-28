@@ -3,7 +3,7 @@ import {
   Row,
 } from "reactstrap";
 
-function Conversions() {
+function SocialMedia() {
 
   return (
     <>
@@ -16,4 +16,4 @@ function Conversions() {
   );
 }
 
-export default Conversions;
+export default SocialMedia;
