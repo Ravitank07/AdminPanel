@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Row, Col, Button } from "reactstrap";
 import { FaMobileAlt, FaStore } from "react-icons/fa"; // Icon imports
 import { useNavigate } from "react-router-dom"; // Router for navigation
-
+import { IoLogoGooglePlaystore } from "react-icons/io5";
 function ManageApps() {
   const [showModal, setShowModal] = useState(false);
   const [activeTab, setActiveTab] = useState("playStore"); // State to manage active tab
@@ -201,7 +201,7 @@ function ManageApps() {
                 {/* App via Manually Tab */}
                 <div className="space-y-4">
                   <div className="form-group flex items-center">
-                    <FaStore className="mr-2 text-xl" />
+                    <IoLogoGooglePlaystore className="mr-2 text-xl" />
                     <input
                       type="text"
                       name="playStoreLink"
