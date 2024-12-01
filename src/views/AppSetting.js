@@ -81,41 +81,45 @@ function ManageApps() {
       </Row>
       <Row>
         <Col md="12">
-          <div className="table-responsive">
-            <table className="table table-striped">
-              <thead>
+          <div className="overflow-x-auto">
+            <table className="min-w-full border-collapse bg-white">
+              <thead className="bg-gray-200">
                 <tr>
-                  <th>App Name</th>
-                  <th>Package Name</th>
-                  <th>App ID</th>
-                  <th>Created On</th>
-                  <th>Status</th>
-                  <th>Actions</th>
+                  <th className="px-4 py-2 text-left text-sm font-semibold text-gray-700">App Name</th>
+                  <th className="px-4 py-2 text-left text-sm font-semibold text-gray-700">Package Name</th>
+                  <th className="px-4 py-2 text-left text-sm font-semibold text-gray-700">App ID</th>
+                  <th className="px-4 py-2 text-left text-sm font-semibold text-gray-700">Created On</th>
+                  <th className="px-4 py-2 text-left text-sm font-semibold text-gray-700">Status</th>
+                  <th className="px-4 py-2 text-left text-sm font-semibold text-gray-700">Actions</th>
                 </tr>
               </thead>
               <tbody>
                 {apps.map((app) => (
-                  <tr key={app.id}>
-                    <td>
-                      <div className="d-flex align-items-center">
-                        <FaMobileAlt className="me-2" />
-                        {app.appName}
+                  <tr key={app.id} className="border-b">
+                    <td className="px-4 py-2 text-sm">
+                      <div className="flex items-center space-x-2">
+                        <FaMobileAlt />
+                        <span>{app.appName}</span>
                       </div>
                     </td>
-                    <td>{app.packageName}</td>
-                    <td>{app.appId}</td>
-                    <td>{app.createdOn}</td>
-                    <td>{app.status}</td>
-                    <td>
-                      <Button color="danger" onClick={() => handleViewApp(app.id)}>
+                    <td className="px-4 py-2 text-sm">{app.packageName}</td>
+                    <td className="px-4 py-2 text-sm">{app.appId}</td>
+                    <td className="px-4 py-2 text-sm">{app.createdOn}</td>
+                    <td className="px-4 py-2 text-sm">{app.status}</td>
+                    <td className="px-4 py-2 text-sm">
+                      <button
+                        className="px-3 py-1 text-sm text-white bg-red-500 rounded hover:bg-red-600"
+                        onClick={() => handleViewApp(app.id)}
+                      >
                         View
-                      </Button>
+                      </button>
                     </td>
                   </tr>
                 ))}
               </tbody>
             </table>
           </div>
+
         </Col>
       </Row>
 

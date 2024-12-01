@@ -25,8 +25,11 @@ root.render(
           <Routes>
             {/* Admin layout routes */}
             <Route path="/admin/*" element={<AdminLayout />} />
-            {/* Redirect to the dashboard if no matching route */}
-            {/* <Route path="*" element={<Navigate to="/admin/dashboard" replace />} /> */}
+
+            {/* Specific default route */}
+            <Route path="/" element={<Navigate to="/admin/dashboard" replace />} />
+
+            {/* Custom Not Found page */}
           </Routes>
         </BrowserRouter>
       </BackgroundColorWrapper>
